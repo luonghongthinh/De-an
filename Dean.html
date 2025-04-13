@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cảnh báo tốc độ xe</title>
+    <link rel="stylesheet" href="Dean.css">
+</head>
+<body>
+    <div class="driver-input-section">
+        <input 
+            type="text" 
+            class="driver-input" 
+            id="driver-name" 
+            placeholder="Nhập họ tên tài xế"
+        >
+        <button id="save-driver" class="save-driver-btn">Lưu</button>
+    </div>
+
+    <!-- Thêm nút chuyển đổi vào HTML -->
+    <div class="simulation-control">
+        <button id="toggle-sim" class="sim-btn">🚦 Bật giả lập</button>
+        <span id="sim-status" class="sim-status">(Đang tắt)</span>
+    </div>
+    <div class="speed-container">
+        <div class="speed-circle" id="obd-circle">
+            <div class="current-speed" id="obd-speed">0</div>
+            <div class="unit">km/h</div>
+            <div class="speed-label">Tốc độ hiện tại</div>
+        </div>
+        
+        <div class="speed-circle" id="limit-circle">
+            <div class="current-speed" id="limit-speed">--</div>
+            <div class="unit">km/h</div>
+            <div class="speed-label">Giới hạn tốc độ</div>
+        </div>
+    </div>
+    
+    <div class="limit-input-section">
+        <input type="number" 
+               class="limit-input" 
+               id="limit-input" 
+               placeholder="Nhập tốc độ giới hạn"
+               min="0"
+               max="200"
+               step="5">
+        
+        <div class="status-message" id="status"></div>
+    </div>
+
+    <div class="history-section">
+        <div class="history-title">📜 Lịch sử cảnh báo</div>
+        <ul class="history-list" id="history-list"></ul>
+    </div>
+    
+    <button id="connect-btn" class="connect-btn">🔗 Kết nối OBD-II </button>
+    <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+    <script src="Dean.js"></script>
+    
+</body>
+</html>
